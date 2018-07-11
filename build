@@ -10,9 +10,9 @@ file="$(basename "$(echo "$1" | cut -f 1 -d '.')")"
 mkdir -p target/
 
 # compile to linker + object files
-yasm -f elf64 -g dwarf2 -l $file.lst $1
+yasm -f elf64 -g dwarf2 -l $file.lst $1 || exit 1
 # compile to binary
-ld -o target/out $file.o
+ld -o target/out $file.o || exit 1
 
 # cleanup
 rm $file.o $file.lst
