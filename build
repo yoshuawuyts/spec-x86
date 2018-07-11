@@ -1,7 +1,12 @@
-#!/bin/bash
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+  echo "usage: build <filename>"
+  exit 1
+fi
 
 # setup
-file="$(basename "${1%.*}")"
+file="$(basename "$(echo "$1" | cut -f 1 -d '.')")"
 mkdir -p target/
 
 # compile to linker + object files

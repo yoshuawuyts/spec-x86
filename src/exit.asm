@@ -1,13 +1,13 @@
 ; Program: exit
-; 
+;
 ; Executes the exit system call
 ;
 ; No input
 ;
 ; Output: only the exit status
 
-  segment .text
-  global _start
+segment .text
+global _start
 
 _start:
   mov eax,1
